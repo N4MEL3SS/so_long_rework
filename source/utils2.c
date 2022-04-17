@@ -1,5 +1,11 @@
 #include "game.h"
 
+void	free_ptr(t_pl **ptr)
+{
+	free(*ptr);
+	*ptr = NULL;
+}
+
 void	terminate(const char *str, void *address)
 {
 	free(address);

@@ -34,18 +34,3 @@ void	ft_warning(const char *str)
 	write(1, "\n", 1);
 }
 
-int	ft_countchar(char *str, char c)
-{
-	int	count;
-
-	if (!str)
-		return (0);
-	count = 0;
-	while (*str)
-	{
-		if (*str == c)
-			count++;
-		str++;
-	}
-	return (count);
-}

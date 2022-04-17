@@ -11,16 +11,23 @@ set(INC includes/game.h
 		includes/get_next_line.h
 		includes/keycode_mac.h
 		includes/keycode_linux.h
-		includes/utils.h includes/sprites.h)
+		includes/utils.h
+		includes/sprite.h
+		includes/player.h)
 
 set(SRC source/main.c
-		source/check_arg.c
 		source/check_map.c
 		source/map_parser.c
 		source/get_next_line.c
 		source/get_next_line_utils.c
 		source/utils1.c
-		source/utils2.c source/init.c)
+		source/utils2.c
+		source/game_init.c
+		source/render_frame.c
+		source/hook.c
+		source/close.c
+		source/map_init.c
+		source/key_control.c)
 
 find_library(MLX mlx mlx_mac/)
 message(${MLX})
