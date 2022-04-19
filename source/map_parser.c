@@ -27,7 +27,6 @@ int	check_open(char *map_path)
 	return (fd);
 }
 
-<<<<<<< HEAD:source/map_parser.c
 void	map_read(int fd, t_map *map)
 {
 	int		i;
