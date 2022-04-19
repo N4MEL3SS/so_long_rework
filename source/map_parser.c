@@ -41,7 +41,7 @@ void	map_read(int fd, t_map *map)
 
 void	map_parser(int argc, char **map_path, t_map *map)
 {
-	int	fd;
+	int fd;
 
 	if (argc < 2)
 		terminate(ERR_ARG0, NULL);
@@ -52,19 +52,4 @@ void	map_parser(int argc, char **map_path, t_map *map)
 	check_map(fd, map);
 	fd = open(map_path[1], O_RDONLY);
 	map_read(fd, map);
-=======
-int	*check_arg(int argc, char **map)
-{
-	int		*fd_arr;
-
-	if (argc < 2)
-		terminate(ERR_ARG0, NULL);
-	if (argc > 2) //TODO: Заглушка на время
-		terminate(ERR_ARGS, NULL);
-	fd_arr = mem_alloc(sizeof(int) * (argc));
-	fd_arr[0] = argc;
-	while (--argc > 0)
-		fd_arr[argc] = check_open(map[argc]);
-	return (fd_arr);
->>>>>>> origin/master:source/check_arg.c
 }
