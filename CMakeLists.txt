@@ -22,12 +22,12 @@ set(SRC source/main.c
 		source/get_next_line_utils.c
 		source/utils1.c
 		source/utils2.c
-		source/game_init.c
+		source/init_game.c
 		source/render_frame.c
 		source/hook.c
 		source/close.c
-		source/map_init.c
-		source/key_control.c)
+		source/init_map.c
+		source/key_control.c source/animation.c source/move.c source/init_sprite.c)
 
 find_library(MLX mlx mlx_mac/)
 message(${MLX})

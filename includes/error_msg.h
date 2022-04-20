@@ -17,10 +17,12 @@
 # define ERR_MAP_C	"There should be at least one collectible!"
 # define ERR_MAP_PASS "There is no passage to the exit!"
 
+# define MAP_MOVE 	"Total moves: "
+
 /* Foreground colors */
 # define GREEN "\e[0;32m"
 # define RED "\e[0;31m"
-# define YELLOW "\e[0;33m"
+# define BLUE "\e[0;34m"
 # define COLOR_END "\e[0;39m"
 # define COLOR_SIZE 7
 

@@ -23,7 +23,7 @@ void	check_line(char *line, t_mchk *op, t_merr *err)
 		(line[0] != '1' && line[op->col - 2] != '1'))
 		err->borders = 1;
 	err->n_collect = op->char_arr[COL_INDEX] < 1;
-	err->n_exits = op->char_arr[EXIT_INDEX] != 1;
+	err->n_exits = op->char_arr[EXIT_INDEX_CL] != 1;
 	err->n_players = op->char_arr[PLAYER_INDEX] != 1;
 }
 
@@ -43,8 +43,8 @@ void	map_opt_fill(char *line, t_mchk *op)
 		index = (int)((line[i] - 47 + (line[i] / 69)) % 10);
 		if (index >= CHAR_ARR_SIZE)
 			terminate(ERR_MAP_S, line);
-		if (index == PLAYER_INDEX)
-			player_pos_init(op, i);
+		if (index == PLAYER_INDEX || index == EXIT_INDEX_CL)
+			pos_init(op, i, index);
 		op->char_arr[index]++;
 		i++;
 	}
@@ -55,7 +55,7 @@ void	read_col_row(int fd, t_mchk *op, t_merr *err)
 	char	*line;
 
 	op->row = 0;
-	line = get_next_line(fd, B_SIZE);
+	line = get_next_line(fd, BUFF_SIZE);
 	op->col = ft_strlen(line);
 	while (line && ++op->row)
 	{
@@ -67,7 +67,7 @@ void	read_col_row(int fd, t_mchk *op, t_merr *err)
 	close(fd);
 }
 
-void	check_map(int fd, t_map *map)
+void	check_map(int fd, t_map *map, t_play *pl)
 {
 	t_merr	err;
 	t_mchk	opt;
@@ -76,8 +76,13 @@ void	check_map(int fd, t_map *map)
 	map_err_init(&err);
 	read_col_row(fd, &opt, &err);
 	print_map_error(&err);
-	map->width = opt.col;
-	map->height = opt.row;
+	map->col = opt.col;
+	map->row = opt.row;
 	map->pl_pos_x = opt.pl_pos_x;
 	map->pl_pos_y = opt.pl_pos_y;
+	map->ex_pos_x = opt.ex_pos_x;
+	map->ex_pos_y = opt.ex_pos_y;
+	pl->pos_x = opt.pl_pos_x * SCALE;
+	pl->pos_y = opt.pl_pos_y * SCALE;
+	pl->collect = opt.char_arr[COL_INDEX];
 }

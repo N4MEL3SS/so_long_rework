@@ -7,4 +7,10 @@
 # define MOUSE_RELEASE 5
 # define DESTROY 17
 
+void	ft_error(void);
+size_t	ft_strlen(const char *str);
+void	ft_message(const char *str);
+void	terminate(const char *str, void *address);
+void	*mem_alloc(size_t size);
+
 #endif //UTILS_H

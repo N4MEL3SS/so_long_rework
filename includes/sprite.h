@@ -1,17 +1,25 @@
-#ifndef SPRITES_H
-# define SPRITES_H
+#ifndef SPRITE_H
+# define SPRITE_H
 
-# define IMG_SIZE 32
-# define STAT_IMG 5
+# define SHIFT 4
+# define STAT_ARR 6
+# define PLAYER_ARR 9
 
-# define IMG_PATH "/Users/celadia/school21/so_long_rework/"
+# define PLAYER_IMG_0 "sprites/Pac-Man/pac_closed.xpm"
+# define PLAYER_IMG_1 "sprites/Pac-Man/pac_open_left.xpm"
+# define PLAYER_IMG_2 "sprites/Pac-Man/pac_open_down.xpm"
+# define PLAYER_IMG_3 "sprites/Pac-Man/pac_open_right.xpm"
+# define PLAYER_IMG_4 "sprites/Pac-Man/pac_open_up.xpm"
+# define PLAYER_IMG_5 "sprites/Pac-Man/pac_semi_left.xpm"
+# define PLAYER_IMG_6 "sprites/Pac-Man/pac_semi_down.xpm"
+# define PLAYER_IMG_7 "sprites/Pac-Man/pac_semi_right.xpm"
+# define PLAYER_IMG_8 "sprites/Pac-Man/pac_semi_up.xpm"
 
-# define PLAYER_IMG "sprites/Pac-Man/pac_closed.xpm"
-# define PLAYER2_IMG "sprites/Pac-Man/pac_open_right.xpm"
 # define WALL_IMG "sprites/Other/Walls/wall.xpm"
 # define EMPTY_IMG "sprites/Other/Walls/black.xpm"
 # define COL_IMG "sprites/Other/Pacdots/pacdot_food.xpm"
-# define EXIT_IMG "sprites/Other/Portal/portal.xpm"
+# define EXIT_OPEN "sprites/Other/Portal/portal_open.xpm"
+# define EXIT_CLOSE "sprites/Other/Portal/portal_close.xpm"
 
 typedef struct s_image
 {
@@ -22,10 +30,11 @@ typedef struct s_image
 
 typedef struct s_sprites
 {
-	t_img	*stat_img[STAT_IMG];
-	t_img	*player_img;
-	t_img	*player2_img;
+	t_img	*stat_img[STAT_ARR];
+	t_img	*pl_anim[PLAYER_ARR];
 }				t_spr;
-/* spt - sprites */
+/* spr - sprites */
 
-#endif //SPRITES_H
+void	sprite_init(t_spr *spr, void *mlx_ptr);
+
+#endif //SPRITE_H
