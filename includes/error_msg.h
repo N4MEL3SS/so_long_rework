@@ -15,7 +15,7 @@
 # define ERR_MAP_E	"Invalid number of exits!"
 # define ERR_MAP_P	"Invalid number of players!"
 # define ERR_MAP_C	"There should be at least one collectible!"
-# define ERR_MAP_PASS "There is no passage to the exit!"
+# define ERR_MAP_G	"All the ghosts were caught GHOSTBUSTERS!"
 
 # define MAP_MOVE 	"Total moves: "
 

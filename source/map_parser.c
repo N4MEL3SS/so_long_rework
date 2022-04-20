@@ -39,7 +39,7 @@ void	map_read(int fd, t_map *map)
 	close(fd);
 }
 
-void	map_parser(int argc, char **map_path, t_map *map, t_play *pl)
+void	map_parser(int argc, char **map_path, t_game *game)
 {
 	int	fd;
 
@@ -49,7 +49,7 @@ void	map_parser(int argc, char **map_path, t_map *map, t_play *pl)
 		terminate(ERR_ARGS, NULL);
 	check_extension(map_path[1]);
 	fd = check_open(map_path[1]);
-	check_map(fd, map, pl);
+	check_map(fd, game);
 	fd = open(map_path[1], O_RDONLY);
-	map_read(fd, map);
+	map_read(fd, game->map);
 }

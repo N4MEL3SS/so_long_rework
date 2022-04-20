@@ -16,4 +16,5 @@ void	map_err_init(t_merr *err)
 	err->n_players = 0;
 	err->n_collect = 0;
 	err->n_exits = 0;
+	err->n_ghost = 0;
 }

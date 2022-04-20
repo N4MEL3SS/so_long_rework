@@ -2,7 +2,7 @@
 # define SPRITE_H
 
 # define SHIFT 4
-# define STAT_ARR 6
+# define STAT_ARR 7
 # define PLAYER_ARR 9
 
 # define PLAYER_IMG_0 "sprites/Pac-Man/pac_closed.xpm"
@@ -20,6 +20,7 @@
 # define COL_IMG "sprites/Other/Pacdots/pacdot_food.xpm"
 # define EXIT_OPEN "sprites/Other/Portal/portal_open.xpm"
 # define EXIT_CLOSE "sprites/Other/Portal/portal_close.xpm"
+# define GHOST_IMG "sprites/Ghosts/Y/ghost_down1.xpm"
 
 typedef struct s_image
 {

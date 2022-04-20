@@ -12,6 +12,8 @@ void	print_map_error(t_merr *err)
 		terminate(ERR_MAP_C, NULL);
 	if (err->n_exits)
 		terminate(ERR_MAP_E, NULL);
+	if (err->n_ghost)
+		terminate(ERR_MAP_G, NULL);
 }
 
 void	check_line(char *line, t_mchk *op, t_merr *err)
@@ -25,9 +27,10 @@ void	check_line(char *line, t_mchk *op, t_merr *err)
 	err->n_collect = op->char_arr[COL_INDEX] < 1;
 	err->n_exits = op->char_arr[EXIT_INDEX_CL] != 1;
 	err->n_players = op->char_arr[PLAYER_INDEX] != 1;
+	err->n_ghost = op->char_arr[GHOST_INDEX] != 2;
 }
 
-void	map_opt_fill(char *line, t_mchk *op)
+void	map_opt_fill(char *line, t_mchk *op, t_game *game)
 {
 	int		index;
 	int		i;
@@ -43,14 +46,15 @@ void	map_opt_fill(char *line, t_mchk *op)
 		index = (int)((line[i] - 47 + (line[i] / 69)) % 10);
 		if (index >= CHAR_ARR_SIZE)
 			terminate(ERR_MAP_S, line);
-		if (index == PLAYER_INDEX || index == EXIT_INDEX_CL)
-			pos_init(op, i, index);
+		if (index == PLAYER_INDEX || index == EXIT_INDEX_CL || \
+		index == GHOST_INDEX)
+			pos_init(game, i, op->row - 1, index);
 		op->char_arr[index]++;
 		i++;
 	}
 }
 
-void	read_col_row(int fd, t_mchk *op, t_merr *err)
+void	read_col_row(int fd, t_mchk *op, t_merr *err, t_game *game)
 {
 	char	*line;
 
@@ -59,7 +63,7 @@ void	read_col_row(int fd, t_mchk *op, t_merr *err)
 	op->col = ft_strlen(line);
 	while (line && ++op->row)
 	{
-		map_opt_fill(line, op);
+		map_opt_fill(line, op, game);
 		check_line(line, op, err);
 		free(line);
 		line = get_next_line(fd, op->col);
@@ -67,22 +71,16 @@ void	read_col_row(int fd, t_mchk *op, t_merr *err)
 	close(fd);
 }
 
-void	check_map(int fd, t_map *map, t_play *pl)
+void	check_map(int fd, t_game *game)
 {
 	t_merr	err;
 	t_mchk	opt;
 
 	map_opt_init(&opt);
 	map_err_init(&err);
-	read_col_row(fd, &opt, &err);
+	read_col_row(fd, &opt, &err, game);
 	print_map_error(&err);
-	map->col = opt.col;
-	map->row = opt.row;
-	map->pl_pos_x = opt.pl_pos_x;
-	map->pl_pos_y = opt.pl_pos_y;
-	map->ex_pos_x = opt.ex_pos_x;
-	map->ex_pos_y = opt.ex_pos_y;
-	pl->pos_x = opt.pl_pos_x * SCALE;
-	pl->pos_y = opt.pl_pos_y * SCALE;
-	pl->collect = opt.char_arr[COL_INDEX];
+	game->map->col = opt.col;
+	game->map->row = opt.row;
+	game->player->collect = opt.char_arr[COL_INDEX];
 }

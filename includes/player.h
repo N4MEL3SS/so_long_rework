@@ -7,18 +7,19 @@
 # define RIGHT 3
 # define CENTER 0
 
-# define SPEED 4
+# define PL_SPEED 4
+# define GH1_SPEED 2
+# define GH2_SPEED 2
 # define KEY_ARR_SIZE 5
 /* SPEED_P - Positive */
 /* SPEED_N - Negative */
 
 typedef struct s_player
 {
-	int		pos_x;
-	int		pos_y;
+	int		win_pos_x;
+	int		win_pos_y;
 	int		vector;
 	int		n_vector;
-	int		score;
 	int		collect;
 	int		move_count;
 	int		key_array[KEY_ARR_SIZE];
