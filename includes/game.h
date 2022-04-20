@@ -45,10 +45,14 @@ void	pre_render(t_game *game);
 void	hook(t_game *game);
 int		render_loop(t_game *game);
 
+int		mc_up_down(char **map_arr, t_play *pl, int vector);
+int		mc_left_right(char **map_arr, t_play *pl, int vector);
+
 void	player_move(t_game *game, t_map *map, t_play *pl);
+void	ghost_move(t_game *game, t_map *map, t_play *gh, int shift);
 void	ft_move_msg(char *str, int n, t_game *game);
 void	animation(t_game *game, t_img **img, t_play *pl);
-void	door_ainm(t_game *game);
+void	door_anim(t_game *game);
 int		close_win(t_game *game);
 void	pos_init(t_game *game, int x, int y, int index);
 

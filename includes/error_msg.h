@@ -18,6 +18,8 @@
 # define ERR_MAP_G	"All the ghosts were caught GHOSTBUSTERS!"
 
 # define MAP_MOVE 	"Total moves: "
+# define DIE		"You DIED!"
+# define CONG		"Congratulations! Congratulations!"
 
 /* Foreground colors */
 # define GREEN "\e[0;32m"

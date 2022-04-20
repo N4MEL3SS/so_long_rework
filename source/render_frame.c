@@ -25,14 +25,27 @@ void	pre_render(t_game *game)
 	arr[game->map->ex_pos_y][game->map->ex_pos_x] = '1';
 }
 
+void	finish(t_game *game, char *str, char *color)
+{
+	ft_message(str, color);
+	close_win(game);
+}
+
 int	render_loop(t_game *game)
 {
 	player_move(game, game->map, game->player);
+	ghost_move(game, game->map, game->ghost1, 0);
+	ghost_move(game, game->map, game->ghost2, 2);
 	animation(game, game->sprite->pl_anim, game->player);
-	door_ainm(game);
+	door_anim(game);
+	if ((game->player->win_pos_y == game->ghost1->win_pos_y && \
+		game->player->win_pos_x == game->ghost1->win_pos_x) || \
+		(game->player->win_pos_y == game->ghost2->win_pos_y && \
+		game->player->win_pos_x == game->ghost2->win_pos_x))
+		finish(game, DIE, RED);
 	if (game->player->win_pos_x == game->map->ex_pos_x * SCALE && \
 		game->player->win_pos_y == game->map->ex_pos_y * SCALE)
-		close_win(game);
+		finish(game, CONG, GREEN);
 	if (game->frame == FRAME_X2 / PL_SPEED)
 		game->frame = -1;
 	game->frame++;

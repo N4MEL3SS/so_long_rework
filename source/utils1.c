@@ -18,9 +18,9 @@ void	ft_error(void)
 	write(1, "\n", 1);
 }
 
-void	ft_message(const char *str)
+void	ft_message(const char *str, char *color)
 {
-	write(1, GREEN, COLOR_SIZE);
+	write(1, color, COLOR_SIZE);
 	write(1, str, ft_strlen(str));
 	write(1, COLOR_END, COLOR_SIZE);
 	write(1, "\n", 1);

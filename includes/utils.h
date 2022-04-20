@@ -9,7 +9,7 @@
 
 void	ft_error(void);
 size_t	ft_strlen(const char *str);
-void	ft_message(const char *str);
+void	ft_message(const char *str, char *color);
 void	terminate(const char *str, void *address);
 void	*mem_alloc(size_t size);
 

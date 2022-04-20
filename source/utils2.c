@@ -5,7 +5,7 @@ void	terminate(const char *str, void *address)
 	free(address);
 	address = NULL;
 	ft_error();
-	ft_message(str);
+	ft_message(str, GREEN);
 	exit(EXIT_FAILURE);
 }
 

@@ -13,7 +13,7 @@ void	animation(t_game *game, t_img **img, t_play *pl)
 			img[0]->img_ptr, pl->win_pos_x, pl->win_pos_y);
 }
 
-void	door_ainm(t_game *game)
+void	door_anim(t_game *game)
 {
 	if (game->player->collect == 0)
 	{

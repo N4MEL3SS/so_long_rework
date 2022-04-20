@@ -20,7 +20,7 @@
 # define COL_IMG "sprites/Other/Pacdots/pacdot_food.xpm"
 # define EXIT_OPEN "sprites/Other/Portal/portal_open.xpm"
 # define EXIT_CLOSE "sprites/Other/Portal/portal_close.xpm"
-# define GHOST_IMG "sprites/Ghosts/Y/ghost_down1.xpm"
+# define GHOST_IMG "sprites/Ghosts/O/ghost_down2.xpm"
 
 typedef struct s_image
 {

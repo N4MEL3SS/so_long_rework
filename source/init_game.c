@@ -43,9 +43,11 @@ void	player_init(t_play *pl)
 
 void	ghost_init(t_play *gh1, t_play *gh2)
 {
-	gh1->n_vector = UP;
+	gh1->vector = 0;
+	gh1->n_vector = 0;
 	key_arr_init(gh1, GH1_SPEED);
-	gh1->n_vector = UP;
+	gh2->vector = 0;
+	gh2->n_vector = 0;
 	key_arr_init(gh2, GH2_SPEED);
 }
 
