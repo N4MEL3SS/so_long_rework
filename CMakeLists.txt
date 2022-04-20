@@ -15,22 +15,22 @@ set(INC includes/game.h
 		includes/utils.h
 		includes/player.h)
 
-set(SRC source/main.c
-		source/map_check.c
-		source/map_parser.c
-		source/get_next_line.c
-		source/get_next_line_utils.c
-		source/utils1.c
-		source/utils2.c
-		source/init_game.c
-		source/render_frame.c
-		source/hook.c
-		source/close.c
-		source/init_map.c
-		source/animation.c
-		source/move_player.c
-		source/init_sprite.c
-		source/move_ghost.c)
+set(SRC source/bonus/main.c
+		source/bonus/map_check.c
+		source/bonus/map_parser.c
+		source/bonus/get_next_line.c
+		source/bonus/get_next_line_utils.c
+		source/bonus/utils1.c
+		source/bonus/utils2.c
+		source/bonus/init_game.c
+		source/bonus/render_frame.c
+		source/bonus/hook.c
+		source/bonus/close.c
+		source/bonus/init_map.c
+		source/bonus/animation.c
+		source/bonus/move_player.c
+		source/bonus/init_sprite.c
+		source/bonus/move_ghost.c)
 
 find_library(MLX mlx mlx_mac/)
 message(${MLX})

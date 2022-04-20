@@ -56,6 +56,8 @@ void	door_anim(t_game *game);
 int		close_win(t_game *game);
 void	pos_init(t_game *game, int x, int y, int index);
 
+void	finish(t_game *game, char *str, char *color);
 int		key_control_press(int key, t_game *game);
+void	ghost_check(t_game *game);
 
 #endif //GAME_H
