@@ -8,8 +8,9 @@
 # define WALL_INDEX 2
 # define EXIT_INDEX_CL 3
 # define PLAYER_INDEX 4
-# define GHOST_INDEX 5
-# define EXIT_INDEX_OP 6
+# define GHOST1_INDEX 5
+# define GHOST2_INDEX 6
+# define EXIT_INDEX_OP 7
 
 /* index = (char - 47 + (char / 69) % 10 */
 /* opt_arr[0] = Collect (C)				 */

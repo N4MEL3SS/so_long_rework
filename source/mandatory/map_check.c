@@ -6,13 +6,13 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:25:40 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/20 12:25:40 by celadia          ###   ########.fr       */
+/*   Updated: 2022/04/22 09:10:10 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-# define CHAR_SIZE 5
+#define CHAR_SIZE 5
 
 void	print_map_error(t_merr *err)
 {

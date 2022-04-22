@@ -14,11 +14,11 @@
 # include "utils.h"
 # include "error_msg.h"
 
-#ifdef MAC
-	# include "keycode_mac.h"
-#else
-	# include "keycode_linux.h"
-#endif
+# ifdef MAC
+	#include "keycode_mac.h"
+# else
+	#include "keycode_linux.h"
+# endif
 
 # define BUFF_SIZE 32
 # define SCALE 32
@@ -45,6 +45,7 @@ void	check_map(int fd, t_game *game);
 void	map_parser(int argc, char **map_path, t_game *game);
 
 void	game_init(t_game *game, t_map *map, t_spr *spr, t_play *pl);
+void	key_arr_init(t_play *play, int speed);
 
 void	pre_render(t_game *game);
 void	hook(t_game *game);

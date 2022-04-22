@@ -23,7 +23,7 @@ set(SRC_CORE source/core/animation.c
 		source/core/map_parser.c
 		source/core/move_player.c
 		source/core/utils1.c
-		source/core/utils2.c)
+		source/core/utils2.c source/core/pre_render.c)
 
 set(SRC_MAN source/mandatory/close.c
 		source/mandatory/init_game.c
@@ -46,23 +46,24 @@ if (APPLE)
 	set(OS_SRC includes/keycode_mac.h
 			source/core/key_control_mac.c)
 	find_library(MLX mlx mlx_mac/)
+	add_compile_options(-DMAC)
 else()
 	set(OS_SRC includes/keycode_linux.h
 			source/core/key_control_linux.c)
 	find_library(MLX mlx mlx_linux/)
 	find_library(XEXT Xext ${X11_Xext_LIB})
+	message(${XEXT})
 endif(APPLE)
 
 message(${MLX})
-message(${XEXT})
 message(${OS_SRC})
 
 add_executable(so_long_basic ${SRC_CORE} ${SRC_MAN} ${INC} ${OS_SRC})
 target_link_libraries(so_long_basic PUBLIC ${MLX})
 
 if (APPLE)
-	target_link_libraries(so_long_basic "-framework OpenGL")
-	target_link_libraries(so_long_basic "-framework AppKit")
+	target_link_libraries(so_long_basic PUBLIC "-framework OpenGL")
+	target_link_libraries(so_long_basic PUBLIC "-framework AppKit")
 else()
 	target_link_libraries(so_long_basic PUBLIC X11)
 	target_link_libraries(so_long_basic PUBLIC ${XEXT})
@@ -72,8 +73,8 @@ add_executable(so_long_bonus ${SRC_CORE} ${SRC_BON} ${INC} ${OS_SRC})
 target_link_libraries(so_long_bonus PUBLIC ${MLX})
 
 if (APPLE)
-	target_link_libraries(so_long_bonus "-framework OpenGL")
-	target_link_libraries(so_long_bonus "-framework AppKit")
+	target_link_libraries(so_long_bonus PUBLIC "-framework OpenGL")
+	target_link_libraries(so_long_bonus PUBLIC "-framework AppKit")
 else()
 	target_link_libraries(so_long_bonus PUBLIC X11)
 	target_link_libraries(so_long_bonus PUBLIC ${XEXT})

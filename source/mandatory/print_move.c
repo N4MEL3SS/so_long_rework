@@ -10,8 +10,7 @@ void	ft_move_msg(char *str, int n, t_game *game)
 	msg[++i] = (char)(n % 100 / 10 + 48);
 	msg[++i] = (char)(n % 10 + 48);
 	msg[++i] = '\0';
-	if (game->player->vector == 0)
-		write(1, "Game started!\n", 14);
+	(void)game;
 	write(1, BLUE, COLOR_SIZE);
 	write(1, str, ft_strlen(str));
 	write(1, msg, ft_strlen(msg));

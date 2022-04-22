@@ -6,7 +6,7 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:26:42 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/20 12:26:42 by celadia          ###   ########.fr       */
+/*   Updated: 2022/04/22 10:01:35 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void	collect_check(char **map_arr, t_play *pl)
 void	player_move(t_game *game, t_map *map, t_play *pl)
 {
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-		game->sprite->stat_img[EMPTY_INDEX]->img_ptr, pl->win_pos_x, pl->win_pos_y);
+		game->sprite->stat_img[EMPTY_INDEX]->img_ptr,
+		pl->win_pos_x, pl->win_pos_y);
 	if (pl->n_vector != pl->vector && (mc_up_down(map->arr, pl, pl->n_vector)
 			|| mc_left_right(map->arr, pl, pl->n_vector)))
 	{

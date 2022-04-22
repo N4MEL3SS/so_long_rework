@@ -16,6 +16,6 @@ void	ft_move_msg(char *str, int n, t_game *game)
 	write(1, COLOR_END, COLOR_SIZE);
 	write(1, "\n", 1);
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-							game->sprite->stat_img[EMPTY_INDEX]->img_ptr, 0, 0);
+		game->sprite->stat_img[EMPTY_INDEX]->img_ptr, 0, 0);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, 1, 4, 0x00FFFFFF, msg);
 }

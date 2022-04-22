@@ -6,7 +6,7 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:25:14 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/20 12:25:14 by celadia          ###   ########.fr       */
+/*   Updated: 2022/04/22 10:19:25 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	pos_init(t_game *game, int x, int y, int index)
 		game->map->ex_pos_x = x;
 		game->map->ex_pos_y = y;
 	}
-	if (index == GHOST_INDEX && !game->ghost++)
+	if (index == GHOST1_INDEX && !game->ghost++)
 	{
 		game->ghost1->win_pos_x = x * SCALE;
 		game->ghost1->win_pos_y = y * SCALE;
 	}
-	if (index == GHOST_INDEX && game->ghost)
+	if (index == GHOST1_INDEX && game->ghost)
 	{
 		game->ghost2->win_pos_x = x * SCALE;
 		game->ghost2->win_pos_y = y * SCALE;

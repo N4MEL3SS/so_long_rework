@@ -6,7 +6,7 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:26:35 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/20 13:31:46 by celadia          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:06:18 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,31 @@ void	collect_redraw(t_game *game, t_map *map, t_play *gh)
 			(j + 1) * SCALE, (i + 1) * SCALE);
 }
 
+int	player_position_y(t_play *pl, t_play *gh, int shift)
+{
+	if (gh->win_pos_y == pl->win_pos_y)
+		return ((pl->vector + shift) % 4);
+	if (gh->win_pos_y > pl->win_pos_y)
+		return (UP);
+	else
+		return (DOWN);
+}
+
+int	player_position_x(t_play *pl, t_play *gh, int shift)
+{
+	if (gh->win_pos_x == pl->win_pos_x)
+		return ((pl->vector + shift) % 4);
+	if (gh->win_pos_x > pl->win_pos_x)
+		return (LEFT);
+	else
+		return (RIGHT);
+}
+
 void	ghost_move(t_game *game, t_map *map, t_play *gh, int shift)
 {
 	collect_redraw(game, map, gh);
-	gh->n_vector = (game->player->vector + shift) % 4;
-	gh->vector = (game->player->vector + shift - 1) % 4;
+	gh->n_vector = player_position_y(game->player, gh, shift);
+	gh->vector = player_position_x(game->player, gh, shift);
 	if (mc_up_down(map->arr, gh, gh->n_vector) || \
 		mc_left_right(map->arr, gh, gh->n_vector))
 	{
@@ -60,8 +80,6 @@ void	ghost_move(t_game *game, t_map *map, t_play *gh, int shift)
 		if (gh->vector == LEFT || gh->vector == RIGHT)
 			gh->win_pos_x += gh->key_array[gh->vector];
 	}
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-		game->sprite->stat_img[GHOST_INDEX]->img_ptr, gh->win_pos_x, gh->win_pos_y);
 }
 
 void	ghost_check(t_game *game)
@@ -69,14 +87,9 @@ void	ghost_check(t_game *game)
 	int		i;
 	int		j;
 
-	i = game->ghost1->win_pos_y;
-	j = game->ghost1->win_pos_x;
-	if (game->player->win_pos_y / SCALE == i && \
-		game->player->win_pos_x / SCALE == j)
-		finish(game, DIE, RED);
-	i = game->ghost2->win_pos_y;
-	j = game->ghost2->win_pos_x;
-	if (game->player->win_pos_y / SCALE == i && \
-		game->player->win_pos_x / SCALE == j)
+	i = game->ghost1->win_pos_y / SCALE;
+	j = game->ghost1->win_pos_x / SCALE;
+	if ((game->player->win_pos_x + 16) / SCALE == j && \
+		(game->player->win_pos_y + 16) / SCALE == i)
 		finish(game, DIE, RED);
 }

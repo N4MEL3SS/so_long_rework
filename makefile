@@ -44,6 +44,7 @@ SRC_CORE = 	animation.c				\
 			init_map.c				\
 			map_parser.c			\
 			move_player.c			\
+			pre_render.c			\
 			utils1.c				\
 			utils2.c
 SRC_MAN_DIR = ./source/mandatory/
