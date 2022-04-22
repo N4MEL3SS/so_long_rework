@@ -47,7 +47,7 @@ if (APPLE)
 			source/core/key_control_mac.c)
 	find_library(MLX mlx mlx_mac/)
 else()
-	set(OS_SRC includes/linux/keycode_linux.h
+	set(OS_SRC includes/keycode_linux.h
 			source/core/key_control_linux.c)
 	find_library(MLX mlx mlx_linux/)
 	find_library(XEXT Xext ${X11_Xext_LIB})

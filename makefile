@@ -18,7 +18,7 @@ ifeq ($(OS), Linux)
 else
 	MLX = ./mlx_mac/
 	SRC_OS = key_control_mac.c
-	MLX_LINK = -L $(MLX) -l mlx $(FRAME_MAC)
+	MLX_LINK = -L $(MLX) -l mlx $(FRAME_MAC) -DMAC
 endif
 
 

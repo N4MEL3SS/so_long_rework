@@ -13,8 +13,12 @@
 # include "get_next_line.h"
 # include "utils.h"
 # include "error_msg.h"
-//# include "keycode_mac.h"
-# include "linux/keycode_linux.h"
+
+#ifdef MAC
+	# include "keycode_mac.h"
+#else
+	# include "keycode_linux.h"
+#endif
 
 # define BUFF_SIZE 32
 # define SCALE 32
