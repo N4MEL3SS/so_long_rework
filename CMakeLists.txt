@@ -7,12 +7,13 @@ include_directories("includes/")
 include_directories("mlx_mac/")
 include_directories("mlx_linux/")
 
-set(INC includes/game.h
-		includes/map.h
+set(INC includes/error_msg.h
+		includes/game.h
 		includes/get_next_line.h
+		includes/map.h
+		includes/player.h
 		includes/sprite.h
-		includes/utils.h
-		includes/player.h)
+		includes/utils.h)
 
 set(SRC_CORE source/core/animation.c
 		source/core/get_next_line.c
@@ -42,10 +43,12 @@ set(SRC_BON source/bonus/close_bonus.c
 		source/bonus/render_frame_bonus.c)
 
 if (APPLE)
-	set(OS_SRC includes/keycode_mac.h source/core/key_control_mac.c)
+	set(OS_SRC includes/keycode_mac.h
+			source/core/key_control_mac.c)
 	find_library(MLX mlx mlx_mac/)
 else()
-	set(OS_SRC includes/linux/keycode_linux.h source/core/key_control_linux.c)
+	set(OS_SRC includes/linux/keycode_linux.h
+			source/core/key_control_linux.c)
 	find_library(MLX mlx mlx_linux/)
 	find_library(XEXT Xext ${X11_Xext_LIB})
 endif(APPLE)
