@@ -63,8 +63,8 @@ void	collect_check(char **map_arr, t_play *pl)
 	int		x;
 	int		y;
 
-	x = pl->win_pos_x / SCALE;
-	y = pl->win_pos_y / SCALE;
+	x = (pl->win_pos_x + 16) / SCALE;
+	y = (pl->win_pos_y + 16) / SCALE;
 	if (map_arr[y][x] == 'C')
 	{
 		map_arr[y][x] = '0';

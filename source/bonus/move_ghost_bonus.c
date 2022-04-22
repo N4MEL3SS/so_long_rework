@@ -6,7 +6,7 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:26:35 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/22 11:31:23 by celadia          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:33:27 by celadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,19 @@ void	ghost_move(t_game *game, t_map *map, t_play *gh, int shift)
 
 void	ghost_check(t_game *game)
 {
-	int		i;
-	int		j;
+	int		i1;
+	int		i2;
+	int		j1;
+	int		j2;
 
-	i = game->ghost1->win_pos_y / SCALE;
-	j = game->ghost1->win_pos_x / SCALE;
-	if ((game->player->win_pos_x + 16) / SCALE == j && \
-		(game->player->win_pos_y + 16) / SCALE == i)
+	i1 = game->ghost1->win_pos_y / SCALE;
+	j1 = game->ghost1->win_pos_x / SCALE;
+	if ((game->player->win_pos_x + 16) / SCALE == j1 && \
+		(game->player->win_pos_y + 16) / SCALE == i1)
+		finish(game, DIE, RED);
+	i2 = game->ghost2->win_pos_y / SCALE;
+	j2 = game->ghost2->win_pos_x / SCALE;
+	if ((game->player->win_pos_x + 16) / SCALE == j2 && \
+		(game->player->win_pos_y + 16) / SCALE == i2)
 		finish(game, DIE, RED);
 }
