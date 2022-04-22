@@ -6,7 +6,7 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:26:49 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/22 11:02:52 by                  ###   ########.fr       */
+/*   Updated: 2022/04/22 11:29:38 by celadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	finish(t_game *game, char *str, char *color)
 int	render_loop(t_game *game)
 {
 	player_move(game, game->map, game->player);
-	ghost_move(game, game->map, game->ghost1, 1);
-	ghost_move(game, game->map, game->ghost2, 3);
+	ghost_move(game, game->map, game->ghost1, 2);
+	ghost_move(game, game->map, game->ghost2, 4);
 	ghost_check(game);
 	animation(game, game->sprite->pl_anim, game->player);
 	animation(game, game->sprite->gh1_anim, game->ghost1);

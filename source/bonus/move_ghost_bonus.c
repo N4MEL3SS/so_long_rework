@@ -6,7 +6,7 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:26:35 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/22 11:06:18 by                  ###   ########.fr       */
+/*   Updated: 2022/04/22 11:29:38 by celadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	collect_redraw(t_game *game, t_map *map, t_play *gh)
 int	player_position_y(t_play *pl, t_play *gh, int shift)
 {
 	if (gh->win_pos_y == pl->win_pos_y)
-		return ((pl->vector + shift) % 4);
+		return (pl->vector);
 	if (gh->win_pos_y > pl->win_pos_y)
 		return (UP);
 	else
