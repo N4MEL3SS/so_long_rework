@@ -36,7 +36,7 @@ void	check_line(char *line, t_mchk *op, t_merr *err)
 		(line[op->col - 1] == '\0' && ft_strlen(line) != op->col - 1))
 		err->rowlen = 1;
 	if ((op->fl_line && op->char_arr[WALL_INDEX] != op->col - 1) || \
-		(line[0] != '1' && line[op->col - 2] != '1'))
+		(line[0] != '1' || line[op->col - 2] != '1'))
 		err->borders = 1;
 	err->n_collect = op->char_arr[COL_INDEX] < 1;
 	err->n_exits = op->char_arr[EXIT_INDEX_CL] != 1;
