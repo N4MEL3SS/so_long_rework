@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/22 11:18:30 by celadia           #+#    #+#             */
+/*   Updated: 2022/04/22 11:22:09 by celadia          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GAME_H
 # define GAME_H
 
@@ -14,17 +26,13 @@
 # include "utils.h"
 # include "error_msg.h"
 
-# ifdef MAC
-	#include "keycode_mac.h"
-# else
-	#include "keycode_linux.h"
-# endif
+# include "keycode_mac.h"
 
 # define BUFF_SIZE 32
 # define SCALE 32
 
 # define FRAME 24
-# define FRAME_X2 (FRAME * 2)
+# define FRAME_X2 48
 
 typedef struct s_game
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/22 11:19:10 by celadia           #+#    #+#             */
+/*   Updated: 2022/04/22 11:19:10 by celadia          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MAP_H
 # define MAP_H
 
@@ -26,8 +38,6 @@ typedef struct s_map_check
 	int		col;
 	int		char_arr[CHAR_ARR_SIZE];
 	int		fl_line;
-	int		ex_pos_x;
-	int		ex_pos_y;
 }				t_mchk;
 /* first or last line flag */
 /* mchk - map_check_option */
