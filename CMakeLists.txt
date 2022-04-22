@@ -32,14 +32,14 @@ set(SRC_MAN source/mandatory/close.c
 		source/mandatory/print_move.c
 		source/mandatory/render_frame.c)
 
-set(SRC_BON source/bonus/close.c
-		source/bonus/init_game.c
-		source/bonus/init_sprite.c
-		source/bonus/main.c
-		source/bonus/map_check.c
-		source/bonus/move_ghost.c
-		source/bonus/print_move.c
-		source/bonus/render_frame.c)
+set(SRC_BON source/bonus/close_bonus.c
+		source/bonus/init_game_bonus.c
+		source/bonus/init_sprite_bonus.c
+		source/bonus/main_bonus.c
+		source/bonus/map_check_bonus.c
+		source/bonus/move_ghost_bonus.c
+		source/bonus/print_move_bonus.c
+		source/bonus/render_frame_bonus.c)
 
 if (APPLE)
 	set(OS_SRC includes/keycode_mac.h source/core/key_control_mac.c)
