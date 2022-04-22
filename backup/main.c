@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 12:25:52 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/20 12:49:26 by celadia          ###   ########.fr       */
+/*   Created: 2022/04/20 12:25:23 by celadia           #+#    #+#             */
+/*   Updated: 2022/04/20 12:27:22 by celadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-void	free_map(t_map *map)
+int	main(int argc, char *argv[])
 {
-	while (--map->row > -1)
-		free(map->arr[map->row]);
-}
+	t_map	map;
+	t_spr	spr;
+	t_game	game;
+	t_play	pl;
 
-int	close_win(t_game *game)
-{
-	free_map(game->map);
-	mlx_clear_window(game->mlx_ptr, game->win_ptr);
-	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	exit(EXIT_SUCCESS);
+	game.map = &map;
+	game.player = &pl;
+	game.ghost1 = (t_play *)mem_alloc(sizeof(t_play));
+	game.ghost2 = (t_play *)mem_alloc(sizeof(t_play));
+	map_parser(argc, argv, &game);
+	game_init(&game, &map, &spr, &pl);
+	pre_render(&game);
+	hook(&game);
+	return (0);
 }

@@ -11,9 +11,10 @@
 # include "player.h"
 # include "sprite.h"
 # include "get_next_line.h"
-# include "keycode_mac.h"
 # include "utils.h"
 # include "error_msg.h"
+//# include "keycode_mac.h"
+# include "linux/keycode_linux.h"
 
 # define BUFF_SIZE 32
 # define SCALE 32
@@ -59,5 +60,7 @@ void	pos_init(t_game *game, int x, int y, int index);
 void	finish(t_game *game, char *str, char *color);
 int		key_control_press(int key, t_game *game);
 void	ghost_check(t_game *game);
+
+void	ft_exit(t_game *game);
 
 #endif //GAME_H

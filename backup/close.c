@@ -20,6 +20,8 @@ void	free_map(t_map *map)
 
 int	close_win(t_game *game)
 {
+	free(game->ghost1);
+	free(game->ghost2);
 	free_map(game->map);
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);

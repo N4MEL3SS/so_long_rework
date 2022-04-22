@@ -12,6 +12,8 @@
 
 #include "game.h"
 
+# define CHAR_SIZE 5
+
 void	print_map_error(t_merr *err)
 {
 	if (err->rowlen)
@@ -24,8 +26,6 @@ void	print_map_error(t_merr *err)
 		terminate(ERR_MAP_C, NULL);
 	if (err->n_exits)
 		terminate(ERR_MAP_E, NULL);
-	if (err->n_ghost)
-		terminate(ERR_MAP_G, NULL);
 }
 
 void	check_line(char *line, t_mchk *op, t_merr *err)
@@ -39,7 +39,6 @@ void	check_line(char *line, t_mchk *op, t_merr *err)
 	err->n_collect = op->char_arr[COL_INDEX] < 1;
 	err->n_exits = op->char_arr[EXIT_INDEX_CL] != 1;
 	err->n_players = op->char_arr[PLAYER_INDEX] != 1;
-	err->n_ghost = op->char_arr[GHOST_INDEX] != 2;
 }
 
 void	map_opt_fill(char *line, t_mchk *op, t_game *game)
@@ -56,10 +55,9 @@ void	map_opt_fill(char *line, t_mchk *op, t_game *game)
 	while (line[i] != '\n' && line[i] != '\0')
 	{
 		index = (int)((line[i] - 47 + (line[i] / 69)) % 10);
-		if (index >= CHAR_ARR_SIZE)
+		if (index >= CHAR_SIZE)
 			terminate(ERR_MAP_S, line);
-		if (index == PLAYER_INDEX || index == EXIT_INDEX_CL || \
-		index == GHOST_INDEX)
+		if (index == PLAYER_INDEX || index == EXIT_INDEX_CL)
 			pos_init(game, i, op->row - 1, index);
 		op->char_arr[index]++;
 		i++;

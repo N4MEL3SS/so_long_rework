@@ -24,6 +24,16 @@ void	pos_init(t_game *game, int x, int y, int index)
 		game->map->ex_pos_x = x;
 		game->map->ex_pos_y = y;
 	}
+	if (index == GHOST_INDEX && !game->ghost++)
+	{
+		game->ghost1->win_pos_x = x * SCALE;
+		game->ghost1->win_pos_y = y * SCALE;
+	}
+	if (index == GHOST_INDEX && game->ghost)
+	{
+		game->ghost2->win_pos_x = x * SCALE;
+		game->ghost2->win_pos_y = y * SCALE;
+	}
 }
 
 void	key_arr_init(t_play *play, int speed)
@@ -43,6 +53,16 @@ void	player_init(t_play *pl)
 	key_arr_init(pl, PL_SPEED);
 }
 
+void	ghost_init(t_play *gh1, t_play *gh2)
+{
+	gh1->vector = 0;
+	gh1->n_vector = 0;
+	key_arr_init(gh1, GH1_SPEED);
+	gh2->vector = 0;
+	gh2->n_vector = 0;
+	key_arr_init(gh2, GH2_SPEED);
+}
+
 void	game_init(t_game *game, t_map *map, t_spr *spr, t_play *pl)
 {
 	game->mlx_ptr = mlx_init();
@@ -57,5 +77,6 @@ void	game_init(t_game *game, t_map *map, t_spr *spr, t_play *pl)
 	game->player = pl;
 	game->sprite = spr;
 	player_init(pl);
+	ghost_init(game->ghost1, game->ghost2);
 	sprite_init(spr, game->mlx_ptr);
 }

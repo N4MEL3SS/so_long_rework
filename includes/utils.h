@@ -13,4 +13,5 @@ void	ft_message(const char *str, char *color);
 void	terminate(const char *str, void *address);
 void	*mem_alloc(size_t size);
 
+
 #endif //UTILS_H

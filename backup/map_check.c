@@ -12,8 +12,6 @@
 
 #include "game.h"
 
-# define CHAR_SIZE 6
-
 void	print_map_error(t_merr *err)
 {
 	if (err->rowlen)
@@ -58,7 +56,7 @@ void	map_opt_fill(char *line, t_mchk *op, t_game *game)
 	while (line[i] != '\n' && line[i] != '\0')
 	{
 		index = (int)((line[i] - 47 + (line[i] / 69)) % 10);
-		if (index >= CHAR_SIZE)
+		if (index >= CHAR_ARR_SIZE)
 			terminate(ERR_MAP_S, line);
 		if (index == PLAYER_INDEX || index == EXIT_INDEX_CL || \
 		index == GHOST_INDEX)

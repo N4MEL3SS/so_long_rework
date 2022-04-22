@@ -6,7 +6,7 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:26:35 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/20 12:26:35 by celadia          ###   ########.fr       */
+/*   Updated: 2022/04/20 13:31:46 by celadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,21 @@ void	ghost_move(t_game *game, t_map *map, t_play *gh, int shift)
 	}
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 		game->sprite->stat_img[GHOST_INDEX]->img_ptr, gh->win_pos_x, gh->win_pos_y);
+}
+
+void	ghost_check(t_game *game)
+{
+	int		i;
+	int		j;
+
+	i = game->ghost1->win_pos_y;
+	j = game->ghost1->win_pos_x;
+	if (game->player->win_pos_y / SCALE == i && \
+		game->player->win_pos_x / SCALE == j)
+		finish(game, DIE, RED);
+	i = game->ghost2->win_pos_y;
+	j = game->ghost2->win_pos_x;
+	if (game->player->win_pos_y / SCALE == i && \
+		game->player->win_pos_x / SCALE == j)
+		finish(game, DIE, RED);
 }

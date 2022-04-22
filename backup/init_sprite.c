@@ -45,5 +45,6 @@ void	sprite_init(t_spr *spr, void *mlx_ptr)
 	spr->stat_img[EXIT_INDEX_CL] = img_init(mlx_ptr, EXIT_CLOSE);
 	spr->stat_img[PLAYER_INDEX] = img_init(mlx_ptr, PLAYER_IMG_0);
 	spr->stat_img[EXIT_INDEX_OP] = img_init(mlx_ptr, EXIT_OPEN);
+	spr->stat_img[GHOST_INDEX] = img_init(mlx_ptr, GHOST_IMG);
 	player_sprite_init(spr, mlx_ptr);
 }

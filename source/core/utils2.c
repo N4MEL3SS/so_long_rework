@@ -12,6 +12,19 @@
 
 #include "game.h"
 
+void	ft_finish(t_game *game, char *str, char *color)
+{
+	ft_message(str, color);
+	close_win(game);
+}
+
+void	ft_exit(t_game *game)
+{
+	if (game->player->win_pos_x == game->map->ex_pos_x * SCALE && \
+		game->player->win_pos_y == game->map->ex_pos_y * SCALE)
+		ft_finish(game, CONG, GREEN);
+}
+
 void	terminate(const char *str, void *address)
 {
 	free(address);
