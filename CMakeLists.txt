@@ -46,7 +46,7 @@ if (APPLE)
 	set(OS_SRC includes/keycode_mac.h
 			source/core/key_control_mac.c)
 	find_library(MLX mlx mlx_mac/)
-	add_compile_options(-DMAC)
+	add_compile_options(-DMAC -DSTR_X=1 -DSTR_Y=4 )
 else()
 	set(OS_SRC includes/keycode_linux.h
 			source/core/key_control_linux.c)

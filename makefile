@@ -110,7 +110,7 @@ $(OBJS_DIR)%.o : $(SRC_MAN_DIR)%.c $(HEADERS)
 	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJS_DIR)%.o : $(SRC_BONUS_DIR)%.c $(HEADERS)
-	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
+	@$(CC) $(FLAGS) -c $(INCLUDES) -DSTR_Y=20 -DSTR_X=6 $< -o $@
 
 clean:
 	@rm -rf $(OBJS_C)

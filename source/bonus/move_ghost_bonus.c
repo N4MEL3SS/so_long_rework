@@ -6,7 +6,7 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:26:35 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/22 11:29:38 by celadia          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:31:23 by celadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	collect_redraw(t_game *game, t_map *map, t_play *gh)
 			(j + 1) * SCALE, (i + 1) * SCALE);
 }
 
-int	player_position_y(t_play *pl, t_play *gh, int shift)
+int	player_position_y(t_play *pl, t_play *gh)
 {
 	if (gh->win_pos_y == pl->win_pos_y)
 		return (pl->vector);
@@ -62,7 +62,7 @@ int	player_position_x(t_play *pl, t_play *gh, int shift)
 void	ghost_move(t_game *game, t_map *map, t_play *gh, int shift)
 {
 	collect_redraw(game, map, gh);
-	gh->n_vector = player_position_y(game->player, gh, shift);
+	gh->n_vector = player_position_y(game->player, gh);
 	gh->vector = player_position_x(game->player, gh, shift);
 	if (mc_up_down(map->arr, gh, gh->n_vector) || \
 		mc_left_right(map->arr, gh, gh->n_vector))
