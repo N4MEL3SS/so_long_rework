@@ -6,11 +6,20 @@
 /*   By: celadia <celadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:25:34 by celadia           #+#    #+#             */
-/*   Updated: 2022/04/20 13:10:52 by celadia          ###   ########.fr       */
+/*   Updated: 2022/05/06 18:15:42 by celadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
+
+void	chcek_first_last_line(char *line)
+{
+	while (line && *line && *line != '\n' && *line != '\0')
+	{
+		if (*line++ != '1')
+			terminate(ERR_MAP_W, NULL);
+	}
+}
 
 void	check_extension(char *map_path)
 {
@@ -63,4 +72,6 @@ void	map_parser(int argc, char **map_path, t_game *game)
 	check_map(fd, game);
 	fd = open(map_path[1], O_RDONLY);
 	map_read(fd, game->map);
+	chcek_first_last_line(game->map->arr[0]);
+	chcek_first_last_line(game->map->arr[game->map->row - 1]);
 }

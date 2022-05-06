@@ -24,7 +24,6 @@ void	map_opt_init(t_mchk	*opt)
 void	map_err_init(t_merr *err)
 {
 	err->rowlen = 0;
-	err->borders = 0;
 	err->n_players = 0;
 	err->n_collect = 0;
 	err->n_exits = 0;

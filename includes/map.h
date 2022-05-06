@@ -37,7 +37,6 @@ typedef struct s_map_check
 	int		row;
 	int		col;
 	int		char_arr[CHAR_ARR_SIZE];
-	int		fl_line;
 }				t_mchk;
 /* first or last line flag */
 /* mchk - map_check_option */
@@ -45,7 +44,6 @@ typedef struct s_map_check
 typedef struct s_map_err
 {
 	int	rowlen;
-	int	borders;
 	int	n_players;
 	int	n_collect;
 	int	n_exits;

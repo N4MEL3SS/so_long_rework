@@ -116,6 +116,7 @@ clean:
 	@rm -rf $(OBJS_C)
 	@rm -rf $(OBJS_M)
 	@rm -rf $(OBJS_B)
+	@rm -rf $(OBJS_DIR_NAME)
 	@echo "$(RED) Object files were deleted. $(END)"
 
 fclean: clean
@@ -123,6 +124,7 @@ fclean: clean
 	@echo "$(RED) $(NAME_MAN) was deleted. $(END)"
 	@rm -f $(NAME_BONUS)
 	@echo "$(RED) $(NAME_BONUS) was deleted. $(END)"
+
 
 re: fclean all
 
